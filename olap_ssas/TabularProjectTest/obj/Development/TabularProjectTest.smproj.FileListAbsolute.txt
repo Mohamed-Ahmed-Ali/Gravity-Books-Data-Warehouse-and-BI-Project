@@ -1,0 +1,9 @@
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\bin\Model.asdatabase
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\bin\Model.deploymenttargets
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\bin\Model.deploymentoptions
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\obj\Development\TabularProjectTest.smproj.AssemblyReference.cache
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\obj\Development\TabularProjectTest.smproj.SuggestedBindingRedirects.cache
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\obj\Development\TabularProjectTest.smproj.CoreCompileInputs.cache
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\obj\Development\Model.asdatabase
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\obj\Development\Model.deploymentoptions
+C:\Users\Mohamed Ali\Desktop\Data ware House Project\ETL\TabularProjectTest\obj\Development\Model.deploymenttargets

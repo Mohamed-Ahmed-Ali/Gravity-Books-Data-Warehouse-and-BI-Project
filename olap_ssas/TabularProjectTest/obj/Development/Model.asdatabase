@@ -1,0 +1,796 @@
+{
+  "name": "TabularProjectTest",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/MOHAMED-ALI;BookStoreDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "MOHAMED-ALI",
+            "database": "BookStoreDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "kind": "SQL",
+          "path": "mohamed-ali;BookStoreDW",
+          "Username": "MOHAMED-ALI\\Mohamed Ali",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "FactOrders",
+        "columns": [
+          {
+            "name": "Customer_SK",
+            "dataType": "int64",
+            "sourceColumn": "Customer_SK"
+          },
+          {
+            "name": "Shipping_Method_SK",
+            "dataType": "int64",
+            "sourceColumn": "Shipping_Method_SK"
+          },
+          {
+            "name": "Line_SK",
+            "dataType": "int64",
+            "sourceColumn": "Line_SK"
+          },
+          {
+            "name": "History_SK",
+            "dataType": "int64",
+            "sourceColumn": "History_SK"
+          },
+          {
+            "name": "Address_SK",
+            "dataType": "int64",
+            "sourceColumn": "Address_SK"
+          },
+          {
+            "name": "DateSK",
+            "dataType": "int64",
+            "sourceColumn": "DateSK"
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDate"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          },
+          {
+            "name": "Order_ID",
+            "dataType": "int64",
+            "sourceColumn": "Order_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_FactOrders = Source{[Schema=\"dbo\",Item=\"FactOrders\"]}[Data]",
+                "in",
+                "    dbo_FactOrders"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {
+            "name": "Customer_SK",
+            "dataType": "int64",
+            "sourceColumn": "Customer_SK"
+          },
+          {
+            "name": "Customer_ID",
+            "dataType": "int64",
+            "sourceColumn": "Customer_ID"
+          },
+          {
+            "name": "First_Name",
+            "dataType": "string",
+            "sourceColumn": "First_Name"
+          },
+          {
+            "name": "Last_Name",
+            "dataType": "string",
+            "sourceColumn": "Last_Name"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email"
+          },
+          {
+            "name": "Address_Status_SK",
+            "dataType": "int64",
+            "sourceColumn": "Address_Status_SK"
+          },
+          {
+            "name": "Address_SK",
+            "dataType": "int64",
+            "sourceColumn": "Address_SK"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateSK",
+            "dataType": "int64",
+            "sourceColumn": "DateSK"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Day",
+            "dataType": "string",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "DaySuffix",
+            "dataType": "string",
+            "sourceColumn": "DaySuffix"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeek"
+          },
+          {
+            "name": "DOWInMonth",
+            "dataType": "int64",
+            "sourceColumn": "DOWInMonth"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayOfYear"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfMonth"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName"
+          },
+          {
+            "name": "Year",
+            "dataType": "string",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "StandardDate",
+            "dataType": "string",
+            "sourceColumn": "StandardDate"
+          },
+          {
+            "name": "HolidayText",
+            "dataType": "string",
+            "sourceColumn": "HolidayText"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimHistory",
+        "columns": [
+          {
+            "name": "History_SK",
+            "dataType": "int64",
+            "sourceColumn": "History_SK"
+          },
+          {
+            "name": "History_ID",
+            "dataType": "int64",
+            "sourceColumn": "History_ID"
+          },
+          {
+            "name": "Status_SK",
+            "dataType": "int64",
+            "sourceColumn": "Status_SK"
+          },
+          {
+            "name": "Status_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Status_Date"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          },
+          {
+            "name": "Order_ID",
+            "dataType": "int64",
+            "sourceColumn": "Order_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimHistory = Source{[Schema=\"dbo\",Item=\"DimHistory\"]}[Data]",
+                "in",
+                "    dbo_DimHistory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimOrderLines",
+        "columns": [
+          {
+            "name": "Line_SK",
+            "dataType": "int64",
+            "sourceColumn": "Line_SK"
+          },
+          {
+            "name": "Line_ID",
+            "dataType": "int64",
+            "sourceColumn": "Line_ID"
+          },
+          {
+            "name": "Book_SK",
+            "dataType": "int64",
+            "sourceColumn": "Book_SK"
+          },
+          {
+            "name": "Price",
+            "dataType": "double",
+            "sourceColumn": "Price"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          },
+          {
+            "name": "Order_ID",
+            "dataType": "int64",
+            "sourceColumn": "Order_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimOrderLines = Source{[Schema=\"dbo\",Item=\"DimOrderLines\"]}[Data]",
+                "in",
+                "    dbo_DimOrderLines"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total_Price",
+            "expression": "SUM(DimOrderLines[Price])"
+          }
+        ]
+      },
+      {
+        "name": "DimShipping",
+        "columns": [
+          {
+            "name": "Shipping_Method_SK",
+            "dataType": "int64",
+            "sourceColumn": "Shipping_Method_SK"
+          },
+          {
+            "name": "Shipping_Method_ID_BK",
+            "dataType": "int64",
+            "sourceColumn": "Shipping_Method_ID_BK"
+          },
+          {
+            "name": "Mehtod_Name",
+            "dataType": "string",
+            "sourceColumn": "Mehtod_Name"
+          },
+          {
+            "name": "Cost_Shipping",
+            "dataType": "double",
+            "sourceColumn": "Cost_Shipping"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimShipping = Source{[Schema=\"dbo\",Item=\"DimShipping\"]}[Data]",
+                "in",
+                "    dbo_DimShipping"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimAuthor",
+        "columns": [
+          {
+            "name": "Author_SK",
+            "dataType": "int64",
+            "sourceColumn": "Author_SK"
+          },
+          {
+            "name": "Auther_ID_BK",
+            "dataType": "int64",
+            "sourceColumn": "Auther_ID_BK"
+          },
+          {
+            "name": "Author_Name",
+            "dataType": "string",
+            "sourceColumn": "Author_Name"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimAuthor = Source{[Schema=\"dbo\",Item=\"DimAuthor\"]}[Data]",
+                "in",
+                "    dbo_DimAuthor"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimAddress",
+        "columns": [
+          {
+            "name": "Address_SK",
+            "dataType": "int64",
+            "sourceColumn": "Address_SK"
+          },
+          {
+            "name": "Address_ID",
+            "dataType": "int64",
+            "sourceColumn": "Address_ID"
+          },
+          {
+            "name": "Street_Number",
+            "dataType": "string",
+            "sourceColumn": "Street_Number"
+          },
+          {
+            "name": "Street_Name",
+            "dataType": "string",
+            "sourceColumn": "Street_Name"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "Country_Name",
+            "dataType": "string",
+            "sourceColumn": "Country_Name"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimAddress = Source{[Schema=\"dbo\",Item=\"DimAddress\"]}[Data]",
+                "in",
+                "    dbo_DimAddress"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimAddressStatus",
+        "columns": [
+          {
+            "name": "Address_Status_SK",
+            "dataType": "int64",
+            "sourceColumn": "Address_Status_SK"
+          },
+          {
+            "name": "Address_Status_ID",
+            "dataType": "int64",
+            "sourceColumn": "Address_Status_ID"
+          },
+          {
+            "name": "Address_Status",
+            "dataType": "string",
+            "sourceColumn": "Address_Status"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimAddressStatus = Source{[Schema=\"dbo\",Item=\"DimAddressStatus\"]}[Data]",
+                "in",
+                "    dbo_DimAddressStatus"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimBook",
+        "columns": [
+          {
+            "name": "Book_SK",
+            "dataType": "int64",
+            "sourceColumn": "Book_SK"
+          },
+          {
+            "name": "Book_ID_BK",
+            "dataType": "int64",
+            "sourceColumn": "Book_ID_BK"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "ISBN13",
+            "dataType": "string",
+            "sourceColumn": "ISBN13"
+          },
+          {
+            "name": "Language_Code",
+            "dataType": "string",
+            "sourceColumn": "Language_Code"
+          },
+          {
+            "name": "Language_Name",
+            "dataType": "string",
+            "sourceColumn": "Language_Name"
+          },
+          {
+            "name": "Publication_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Publication_Date"
+          },
+          {
+            "name": "Publisher_Name",
+            "dataType": "string",
+            "sourceColumn": "Publisher_Name"
+          },
+          {
+            "name": "Author_SK",
+            "dataType": "int64",
+            "sourceColumn": "Author_SK"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          },
+          {
+            "name": "num_pages",
+            "dataType": "int64",
+            "sourceColumn": "num_pages"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimBook = Source{[Schema=\"dbo\",Item=\"DimBook\"]}[Data]",
+                "in",
+                "    dbo_DimBook"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimStatus",
+        "columns": [
+          {
+            "name": "Status_SK",
+            "dataType": "int64",
+            "sourceColumn": "Status_SK"
+          },
+          {
+            "name": "Status_ID_BK",
+            "dataType": "int64",
+            "sourceColumn": "Status_ID_BK"
+          },
+          {
+            "name": "Status_Value",
+            "dataType": "string",
+            "sourceColumn": "Status_Value"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/MOHAMED-ALI;BookStoreDW\",",
+                "    dbo_DimStatus = Source{[Schema=\"dbo\",Item=\"DimStatus\"]}[Data]",
+                "in",
+                "    dbo_DimStatus"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "95db4d61-d467-4538-9181-4e7b648f56b8",
+        "fromTable": "FactOrders",
+        "fromColumn": "Customer_SK",
+        "toTable": "DimCustomer",
+        "toColumn": "Customer_SK"
+      },
+      {
+        "name": "69ba600d-27e9-4dc5-8df2-c05cffdb456c",
+        "fromTable": "FactOrders",
+        "fromColumn": "DateSK",
+        "toTable": "DimDate",
+        "toColumn": "DateSK"
+      },
+      {
+        "name": "648dfcab-49b7-42e4-9eb1-557ca259ab07",
+        "fromTable": "FactOrders",
+        "fromColumn": "History_SK",
+        "toTable": "DimHistory",
+        "toColumn": "History_SK"
+      },
+      {
+        "name": "322b51ae-cecd-4dcd-889e-abce7e28444d",
+        "fromTable": "FactOrders",
+        "fromColumn": "Line_SK",
+        "toTable": "DimOrderLines",
+        "toColumn": "Line_SK"
+      },
+      {
+        "name": "7a6b8c68-ce89-4080-9fa3-574949d9e31b",
+        "fromTable": "FactOrders",
+        "fromColumn": "Shipping_Method_SK",
+        "toTable": "DimShipping",
+        "toColumn": "Shipping_Method_SK"
+      },
+      {
+        "name": "ab336c81-c83b-42c2-9507-645be2990b23",
+        "fromTable": "DimCustomer",
+        "fromColumn": "Address_SK",
+        "toTable": "DimAddress",
+        "toColumn": "Address_SK"
+      },
+      {
+        "name": "1c0a1cb2-e9db-4fc6-ad25-a603fe5cda08",
+        "fromTable": "DimCustomer",
+        "fromColumn": "Address_Status_SK",
+        "toTable": "DimAddressStatus",
+        "toColumn": "Address_Status_SK"
+      },
+      {
+        "name": "43e6663c-bbd0-4af7-8357-42dab5d5a80f",
+        "fromTable": "DimHistory",
+        "fromColumn": "Status_SK",
+        "toTable": "DimStatus",
+        "toColumn": "Status_SK"
+      },
+      {
+        "name": "1e3659cf-04ea-4dd7-9a53-e66816f288e9",
+        "fromTable": "DimOrderLines",
+        "fromColumn": "Book_SK",
+        "toTable": "DimBook",
+        "toColumn": "Book_SK"
+      },
+      {
+        "name": "d13d4953-6ed2-4524-8a73-9217ef5df34a",
+        "fromTable": "DimBook",
+        "fromColumn": "Author_SK",
+        "toTable": "DimAuthor",
+        "toColumn": "Author_SK"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  }
+}
