@@ -56,11 +56,15 @@ This repository contains the source code and documentation for the Gravity Books
    - Sample analytical reports and a dashboard are created.
 
 ## Screenshots
-- [Gravity Books Database Diagram](./screenshots/db_erd.png "Original Data Diagram")</s
-- [Data Warehouse ERD](./screenshots/dwh_erd.png)
-- [SSIS ETL Process](./screenshots/ssis_etl_process.png)
-- [SSAS Cube Browsing](./screenshots/ssas_cube_browsing.png)
-- [Power BI Dashboard](./screenshots/power_bi_dashboard.png)
+![Gravity Books Database Diagram](./screenshots/db_erd.png "Original Data Diagram")
+ 
+![Data Warehouse ERD](./screenshots/dwh_erd.png)
+
+![SSIS ETL Process](./screenshots/ssis_etl_process.png)
+
+![SSAS Cube Browsing](./screenshots/ssas_cube_browsing.png)
+
+![Power BI Dashboard](./screenshots/power_bi_dashboard.png)
 
 ## Contributing
 If you'd like to contribute to the project, please follow the standard GitHub flow:
