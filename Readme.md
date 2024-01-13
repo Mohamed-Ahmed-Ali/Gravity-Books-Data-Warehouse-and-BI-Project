@@ -62,7 +62,7 @@ This repository contains the source code and documentation for the Gravity Books
 
 ![SSIS ETL Process](./screenshots/ssis_etl_process.png)
 
-![SSAS Cube Browsing](./screenshots/ssas_cube_browsing.png)
+![SSAS Cube Browsing](./screenshots/screenshotsssas_cube_browsing.png)
 
 ![Power BI Dashboard](./screenshots/power_bi_dashboard.png)
 
